@@ -14,7 +14,6 @@ mail_pass = read_conf.get_email('mail_pass')  # 从配置文件中读取，登�
 subject = read_conf.get_email('subject')  # 从配置文件中读取，邮件主题
 sender = read_conf.get_email('sender')  # 从配置文件中读取，邮件发送人
 receivers = read_conf.get_email('receivers')  # 从配置文件中读取，邮件收件人
-
 mail_path = os.path.join(getpathInfo.get_Path(), './result/report.html')#获取测试报告路径
 #logger = logger
 
