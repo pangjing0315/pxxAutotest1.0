@@ -10,3 +10,6 @@
 2021-05-10 11:54:45,390 - logs… - INFO - <Response [404]>
 2021-05-10 11:55:24,298 - logs… - INFO - <Response [404]>
 2021-05-10 11:56:21,077 - logs… - INFO - <Response [404]>
+2021-05-10 17:01:04,665 - logs… - INFO - resultPath/Users/pangjing/PycharmProjects/pxxAutotest1.0/result/report.html
+2021-05-10 17:01:04,665 - logs… - INFO - caseListFile/Users/pangjing/PycharmProjects/pxxAutotest1.0/caselist.txt
+2021-05-10 17:01:04,666 - logs… - INFO - caseList[]

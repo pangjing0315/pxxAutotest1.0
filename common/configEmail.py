@@ -44,7 +44,7 @@ class TestMail():
         msg = MIMEMultipart()  # 邮件体
         msg['Subject'] = subject # 邮件主题
         msg['From'] = sender   # 发件人
-        msg['To'] = receivers  # 收件人
+        msg['To'] = receivers # 收件人
         msg["Accept-Language"] = "zh-CN"
         msg["Accept-Charset"] = "ISO-8859-1,utf-8"
         tm = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))  # 获取系统时间
@@ -76,7 +76,6 @@ class TestMail():
             smtpObj.quit()
         except smtplib.SMTPException:
             print('send mail fail')
-
 
 
 
