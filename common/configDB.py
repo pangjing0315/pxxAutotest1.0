@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*
 
-
 import pymysql
 import readConfig as readConfig
-import Log as Log
+import common.Log as Log
 
 localReadConfig = readConfig.ReadConfig()
-
 
 class MyDB:
     global host, username, password, port, database, config
@@ -24,7 +22,7 @@ class MyDB:
     }
 
     def __init__(self):
-        self.log = Log.get_log()
+        self.log = Log.Logger()
         self.logger = self.log.get_logger()
         self.db = None
         self.cursor = None
@@ -38,6 +36,7 @@ class MyDB:
             print("Connect DB successfully!")
         except ConnectionError as ex:
             self.logger.error(str(ex))
+        #return self.cursor
 
     def executeSQL(self, sql, params):
         self.connectDB()

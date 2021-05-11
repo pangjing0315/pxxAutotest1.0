@@ -2,7 +2,7 @@
 
 import os,unittest
 #sys.path.append(r"C:\Users\8vsygj2\PycharmProjects\interfaceTest\common")
-from common.configEmail import TestMail
+#from common.configEmail import TestMail
 
 from common import HTMLTestRunner as HTMLTestRunner
 import getpathInfo,readConfig
