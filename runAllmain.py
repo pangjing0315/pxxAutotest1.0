@@ -3,28 +3,29 @@
 import os,unittest
 #sys.path.append(r"C:\Users\8vsygj2\PycharmProjects\interfaceTest\common")
 #from common.configEmail import TestMail
-
-from common import HTMLTestRunner as HTMLTestRunner
-import getpathInfo,readConfig
-from apscheduler.schedulers.blocking import BlockingScheduler
+import sys
+from common import HTMLTestRunner as HTMLTestRunner, getpathInfo, readConfig
 #import pythoncom
-from common import configEmail
+from common import configEmail,readConfig
 from common import Log
 
-#sys.path.append('/Users/pangjing/PycharmProjects/pxxAutotest1.0/common')
+#sys.path.append('/Users/pangjing/PycharmProjects/pxxAutotest1.0')
 
 send_mail = configEmail.TestMail()
-path = getpathInfo.get_Path()
+path = getpathInfo.get_Path_a()
 report_path = os.path.join(path, 'result')
+caseListFile_path = os.path.join(path, 'testFile')
 on_off = readConfig.ReadConfig().get_email('on_off')
 log = Log.logger
+#print("path: %s"%path)
+#print("report_path: %s"%report_path)
 
 class AllTest:#定义一个类AllTest
     def __init__(self):#初始化一些参数和数据
         global resultPath
         resultPath = os.path.join(report_path, "report.html")#result/report.html
         #print("resultPath:%s" % resultPath)
-        self.caseListFile = os.path.join(path, "caselist.txt")#配置执行哪些测试文件的配置文件路径
+        self.caseListFile = os.path.join(caseListFile_path, "caselist.txt")#配置执行哪些测试文件的配置文件路径
         self.caseFile = os.path.join(path, "testCase")#真正的测试断言文件路径
         self.caseList = []
         log.info('resultPath'+resultPath)#将resultPath的值输入到日志，方便定位查看问题
@@ -75,9 +76,9 @@ class AllTest:#定义一个类AllTest
         try:
             suit = self.set_case_suite()#调用set_case_suite获取test_suite
             print("**************** Beginning ****************")
-            print(str(suit))
+            #print(str(suit))
             if suit is not None:#判断test_suite是否为空
-                print('if-suit')
+                #print('if-suit')
                 fp = open(resultPath, 'rb')#打开result/report.html测试报告文件，如果不存在就创建
                 #调用HTMLTestRunner
                 runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title='Test Report', description='Test Description')

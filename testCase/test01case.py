@@ -2,7 +2,7 @@ import json
 import unittest
 from common.configHttp import RunMain
 import paramunittest
-import geturlParams
+from common import geturlParams
 import urllib.parse
 # import pythoncom
 import readExcel

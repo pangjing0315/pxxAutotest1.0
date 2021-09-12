@@ -1,12 +1,12 @@
 import os
 import logging
 from logging.handlers import TimedRotatingFileHandler
-import getpathInfo
+from common import getpathInfo
 
-path = getpathInfo.get_Path()
+path = getpathInfo.get_Path_a()
 log_path = os.path.join(path, 'result')  # 存放log文件的路径
-print("path是:%s"%path)
-print("log_path是:%s"%log_path)
+#print("path是:%s"%path)
+#print("log_path是:%s"%log_path)
 
 class Logger(object):
     def __init__(self, logger_name='logs…'):
@@ -35,6 +35,14 @@ class Logger(object):
             file_handler.setFormatter(self.formatter)
             file_handler.setLevel(self.file_output_level)
             self.logger.addHandler(file_handler)
+        return self.logger
+
+    def uc_log(self):
+        logger = logging.getLogger('uc')
+        handler1 = logging.FileHandler(filename='test_uc.log', encoding='utf-8')
+        formatter = logging.Formatter("%(asctime)s %(name)s %(levelname)s %(message)s")
+        handler1.setFormatter(formatter)
+        logger.addHandler(handler1)
         return self.logger
 
 

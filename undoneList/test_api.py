@@ -2,12 +2,11 @@ import flask
 import json
 from flask import request
 
-'''
-flask： web框架，通过flask提供的装饰器@server.route()将普通函数转换为服
+'''通函数转换为服
 '''
 # 创建一个服务，把当前这个python文件当做一个服务
 server = flask.Flask(__name__)
-# @server.route()可以将普通函数转变为服务 登录接口的路径、请求方式
+#flask： web框架，通过flask提供的装饰器@server.route()可以将普通函数转变为服务 登录接口的路径、请求方式
 @server.route('/login', methods=['get', 'post'])
 def login():
     # 获取通过url请求传参的数据

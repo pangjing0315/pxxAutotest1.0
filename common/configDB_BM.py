@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*
 
 import pymysql
-import readConfig as readConfig
+from common import readConfig as readConfig
 import common.Log as Log
 
 localReadConfig = readConfig.ReadConfig()
 
-class MyDB:
+class MyDB_BM:
     global host, username, password, port, database, config
-    host = localReadConfig.get_mydb("host")
-    port = localReadConfig.get_mydb("port")
-    username = localReadConfig.get_mydb("username")
-    password = localReadConfig.get_mydb("password")
-    database = localReadConfig.get_mydb("database")
+    host = localReadConfig.get_mydb_bm("host")
+    port = localReadConfig.get_mydb_bm("port")
+    username = localReadConfig.get_mydb_bm("username")
+    password = localReadConfig.get_mydb_bm("password")
+    database = localReadConfig.get_mydb_bm("database")
     config = {
         'host': str(host),
         'user': username,

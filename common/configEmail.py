@@ -2,8 +2,7 @@
 #Python基于SMTP封装的邮件发送
 
 import os,time,smtplib
-import readConfig
-import getpathInfo
+from common import getpathInfo, readConfig
 from email.mime.text import MIMEText  # 发送正文
 from email.mime.multipart import MIMEMultipart  # 发送多个部分
 from email.mime.application import MIMEApplication  # 发送附件
@@ -16,7 +15,7 @@ subject = read_conf.get_email('subject')  # 从配置文件中读取，邮件主
 sender = read_conf.get_email('sender')  # 从配置文件中读取，邮件发送人
 receivers = read_conf.get_email('receivers')  # 从配置文件中读取，邮件收件人
 
-mail_path = os.path.join(getpathInfo.get_Path(), './result/report.html')#获取测试报告路径
+mail_path = os.path.join(getpathInfo.get_Path_a(), './result/report.html')#获取测试报告路径
 #logger = logger
 
 
@@ -37,7 +36,9 @@ class TestMail():
 
     def send_mail(self):
 
-        f = open('/Users/pangjing/PycharmProjects/pxxAutotest1.0/result/report.html', 'rb')
+        #f = open('/Users/pangjing/PycharmProjects/pxxAutotest1.0/result/report.html', 'rb')
+        f = open('/Users/pj/PycharmProjects/pxxAutotest1.0/result/report.html', 'rb')
+
         mail_body = f.read()    #读取测试报告正文
         f.close()
 
